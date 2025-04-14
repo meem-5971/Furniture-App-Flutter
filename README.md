@@ -1,4 +1,4 @@
-# lab7
+# Furniture App
 
 A new Flutter project.
 
