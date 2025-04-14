@@ -35,14 +35,29 @@ class CartScreen extends StatelessWidget {
                     contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     leading: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(product.imageUrl, width: 60, height: 60, fit: BoxFit.cover),
+                      child: Image.network(
+                        product.imageUrl,
+                        width: 60,
+                        height: 60,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          width: 60,
+                          height: 60,
+                          color: Colors.grey[300],
+                          child: Icon(Icons.broken_image, color: Colors.grey),
+                        ),
+                      ),
                     ),
-                    title: Text(product.title, style: TextStyle(fontWeight: FontWeight.bold)),
+                    title: Text(
+                      product.title,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     subtitle: Text('\$${product.price.toStringAsFixed(2)}'),
                     trailing: IconButton(
                       icon: Icon(Icons.delete, color: Colors.redAccent),
                       onPressed: () {
-                        Provider.of<CartProvider>(context, listen: false).removeFromCart(product);
+                        Provider.of<CartProvider>(context, listen: false)
+                            .removeFromCart(product);
                       },
                     ),
                   ),

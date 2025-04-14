@@ -22,7 +22,20 @@ class ProductDetailsScreen extends StatelessWidget {
             Center(
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.asset(product.imageUrl, height: 220, fit: BoxFit.cover),
+                child: Image.network(
+                  product.imageUrl,
+                  height: 220,
+                  fit: BoxFit.cover,
+                  errorBuilder: (_, __, ___) =>
+                      Icon(Icons.broken_image, size: 100, color: Colors.grey),
+                  loadingBuilder: (context, child, progress) {
+                    if (progress == null) return child;
+                    return SizedBox(
+                      height: 220,
+                      child: Center(child: CircularProgressIndicator()),
+                    );
+                  },
+                ),
               ),
             ),
             const SizedBox(height: 20),
