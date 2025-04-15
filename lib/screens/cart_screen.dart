@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/cart_provider.dart';
 
+
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cartItems = Provider.of<CartProvider>(context).cartItems;
 
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Cart'),
         backgroundColor: Colors.amber,
-      ),
+         ),
       body: cartItems.isEmpty
           ? Center(
               child: Text(
@@ -68,3 +70,5 @@ class CartScreen extends StatelessWidget {
     );
   }
 }
+
+
