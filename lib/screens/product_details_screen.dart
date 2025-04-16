@@ -7,12 +7,12 @@ class ProductDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Product product = ModalRoute.of(context)!.settings.arguments as Product;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(product.title),
         backgroundColor: Colors.amber,
       ),
+
       backgroundColor: const Color(0xFFFFF8E1),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -38,10 +38,12 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
+
             const SizedBox(height: 20),
             Text(product.title,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black)),
             const SizedBox(height: 8),
+            
             Text(
               product.description,
               style: TextStyle(fontSize: 16, color: Colors.grey[700]),
@@ -57,11 +59,13 @@ class ProductDetailsScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 ),
+
                 onPressed: () {
                   Provider.of<CartProvider>(context, listen: false).addToCart(product);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('${product.title} added to cart!')),
                   );
+                  
                 },
                 icon: Icon(Icons.add_shopping_cart),
                 label: Text("Add to Cart"),
