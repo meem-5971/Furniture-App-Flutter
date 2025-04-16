@@ -117,7 +117,3 @@ lib/
 ### 📄 License
 
 This project is open source and available under the MIT License.
-
----
-
-If you need help writing submission notes, uploading to GitHub, or prepping for a viva — just let me know. You’ve got this! 💪🚀
