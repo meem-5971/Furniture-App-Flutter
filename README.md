@@ -1,7 +1,3 @@
-You're most welcome! I'm really glad it worked out — and congrats on getting your project up and running 🎉🔥  
-Here’s a clean and complete **`README.md`** for your Flutter Furniture Store App:
-
----
 
 ## 🛋️ Furniture Store App
 
